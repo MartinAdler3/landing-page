@@ -1,0 +1,15 @@
+.landing-page{
+    width: 100vw;
+    height: auto;
+    background-color: aqua;
+}
+.contenedor-header,.header-derecha{
+    display: flex;
+    flex-direction: row;
+
+    &.contenedor-header{
+        margin-left: 3%;
+        margin-right: 3%;
+        justify-content: space-between;
+    }
+}
