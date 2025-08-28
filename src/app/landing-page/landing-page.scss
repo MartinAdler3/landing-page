@@ -1,3 +1,7 @@
+*{
+    margin: 0%;
+}
+
 .landing-page{
     width: 100vw;
     height: auto;
@@ -11,5 +15,28 @@
         margin-left: 3%;
         margin-right: 3%;
         justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        background-color: rebeccapurple;
     }
+}
+
+.landing-info,.buenardo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3%;
+
+    &.buenardo{
+        width: 80%;
+        background-color: royalblue;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.buenardito{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
 }
