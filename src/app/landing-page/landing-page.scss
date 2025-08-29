@@ -38,17 +38,20 @@
     background-color: red;
 }
 
-.landing-info,.landing-clientes{
+.landing{
     background-color: coral;
     height: 60vh;
     padding-bottom: 10vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 3%;
-    &.landing-clientes{
+    &.clientes{
         background-color: crimson;
+    }
+    &.preguntas{
+        background-color: cornflowerblue;
     }
 }
 
@@ -56,10 +59,8 @@
     background-color: cyan;
     display: flex;
     flex-direction: row;
-}
-
-.cliente-nombre{
-
+    overflow-x: scroll;
+    width: 100%;
 }
 
 .cartel-cliente{
@@ -68,4 +69,8 @@
     background-color: blue;
     margin-right: 0.8rem;
     margin-left: 0.8rem;
+}
+
+.boton-pregunta{
+    width: 100%;
 }

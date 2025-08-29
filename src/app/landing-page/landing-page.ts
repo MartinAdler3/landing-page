@@ -53,5 +53,21 @@ export class LandingPage {
       nombre: "brotheeer",
       imagen: "https://logo.clearbit.com/wendys.com"
     },
+    {
+      nombre: "burger king",
+      imagen: "https://logo.clearbit.com/burgerking.com"
+    },
+  ]
+  preguntas: any[] = [
+    {
+      pregunta: "¿Cómo se usa?",
+      respuesta: "El uso de Statill es blablabla porque blabla y además blablabla blabl ablabal bal ba",
+      activo: false,
+    },
+    {
+      pregunta: "¿Pueden usarlo mis empleados?",
+      respuesta: "no, depende, a veces si",
+      activo: false,
+    },
   ]
 }

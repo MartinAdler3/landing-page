@@ -19,9 +19,11 @@
     </header>
 
     <!-- seccion 1 -->
-    <div class="landing-info">
-        <h1>Digitaliza tu comercio</h1>
-        <h3>¿Por qué digitalizar comercios?</h3>
+    <div class="landing info">
+        <div>
+            <h1>Digitaliza tu comercio</h1>
+            <h3>¿Por qué digitalizar comercios?</h3>
+        </div>
         <div class="buenardo">
             <div class="buenardito">
                 <img src="" alt="cupon">
@@ -41,14 +43,46 @@
         </div>
     </div>
 
-    <div class="landing-clientes">
-        <h1>Nuestro Trabajo</h1>
-        <h2>Clientes que tuvimos a lo largo de los años</h2>
+    <div class="landing clientes">
+        <div>
+            <h1>Nuestro Trabajo</h1>
+            <h2>Clientes que tuvimos a lo largo de los años</h2>
+        </div>
         <div class="carrusel">
             <div class="cartel-cliente" *ngFor="let cliente of clientes">
                 <img [src]="cliente.imagen" [alt]="">
                 <h4 class="cliente-nombre">{{cliente.nombre}}</h4>
             </div>
+        </div>
+    </div>
+
+    <div class="landing preguntas">
+        <div>
+            <h1>Preguntas Frecuentes</h1>
+            <h2>Clientes que tuvimos a lo largo de los años</h2>
+        </div>
+        <div class="landing-preguntas">
+            <div class="preguntas" *ngFor="let pregunta of preguntas">
+                <button type="button" class="boton-pregunta" (click)="pregunta.activo = !pregunta.activo">
+                    {{pregunta.pregunta}}
+                </button>
+        
+                <div *ngIf="pregunta.activo == true">
+                    {{pregunta.respuesta}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="landing premium">
+        <div>
+            <h1>Planes</h1>
+            <h2>aaaaaaaaaaa</h2>
+        </div>
+
+        <div>
+            <img src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
+            <h4>Premium $400</h4>
         </div>
     </div>
 </div>
