@@ -15,4 +15,43 @@ export class LandingPage {
     "Nosotros", 
     "Premium",
   ]
+
+  clientes: any[] = [
+    {
+      nombre: "Fuoco",
+      imagen: "https://logo.clearbit.com/mcdonalds.com"
+    },
+    {
+      nombre: "McDonald's",
+      imagen: "https://logo.clearbit.com/mcdonalds.com"
+    },
+    {
+      nombre: "Wendy's",
+      imagen: "https://logo.clearbit.com/wendys.com"
+    },
+    {
+      nombre: "Mostaza",
+      imagen: "https://logo.clearbit.com/mostaza.com.ar"
+    },
+        {
+      nombre: "Freddie Verdury",
+      imagen: "https://logo.clearbit.com/mcdonalds.com"
+    },
+    {
+      nombre: "Tacos Goku",
+      imagen: "https://logo.clearbit.com/wendys.com"
+    },
+    {
+      nombre: "Mi Gusto",
+      imagen: "https://logo.clearbit.com/migusto.com.ar"
+    },
+    {
+      nombre: "Dale bro",
+      imagen: "https://logo.clearbit.com/wendys.com"
+    },
+    {
+      nombre: "brotheeer",
+      imagen: "https://logo.clearbit.com/wendys.com"
+    },
+  ]
 }

@@ -21,22 +21,51 @@
     }
 }
 
-.landing-info,.buenardo{
+.buenardo{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 3%;
-
-    &.buenardo{
-        width: 80%;
-        background-color: royalblue;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+    width: 80%;
+    background-color: royalblue;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .buenardito{
     display: flex;
     flex-direction: row;
     background-color: red;
+}
+
+.landing-info,.landing-clientes{
+    background-color: coral;
+    height: 60vh;
+    padding-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3%;
+    &.landing-clientes{
+        background-color: crimson;
+    }
+}
+
+.carrusel{
+    background-color: cyan;
+    display: flex;
+    flex-direction: row;
+}
+
+.cliente-nombre{
+
+}
+
+.cartel-cliente{
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+    margin-right: 0.8rem;
+    margin-left: 0.8rem;
 }

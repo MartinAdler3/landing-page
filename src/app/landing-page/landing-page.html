@@ -41,5 +41,15 @@
         </div>
     </div>
 
+    <div class="landing-clientes">
+        <h1>Nuestro Trabajo</h1>
+        <h2>Clientes que tuvimos a lo largo de los años</h2>
+        <div class="carrusel">
+            <div class="cartel-cliente" *ngFor="let cliente of clientes">
+                <img [src]="cliente.imagen" [alt]="">
+                <h4 class="cliente-nombre">{{cliente.nombre}}</h4>
+            </div>
+        </div>
+    </div>
 </div>
 
