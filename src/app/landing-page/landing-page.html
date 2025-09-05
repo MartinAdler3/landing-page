@@ -1,25 +1,22 @@
 <div class="landing-page">
 
     <!-- Header -->
-    <header class="Header">
+    <header class="header" [class.hidden]="isScrollingDown">
         <nav class="contenedor-header">
             <ul class="header-derecha"><!-- seccion derecha -->
                 <li class="botones-header" *ngFor="let boton of botonesHeader">
-                {{ boton }}
+                    <button type="button" (click)="dirigirASeccion(boton.id)">{{boton.nombre}}</button>
                 </li>
             </ul>
             <ul class="header-izquierda"><!-- seccion izquierda -->
-            <button type="button" class="inciar-sesion">
-                Iniciar Sesion
-            </button>
-            <button type="button" class="registrarse">
-                Registrarse
-            </button></ul>
+                <button type="button" class="inciar-sesion">Iniciar sesión</button>
+                <button type="button" class="registrarse">Registrarse</button>
+            </ul>
         </nav>
     </header>
 
     <!-- seccion 1 -->
-    <div class="landing info">
+    <div id="landing-info" class="landing info">
         <div>
             <h1>Digitaliza tu comercio</h1>
             <h3>¿Por qué digitalizar comercios?</h3>
@@ -43,20 +40,20 @@
         </div>
     </div>
 
-    <div class="landing clientes">
+    <div id="landing-clientes" class="landing clientes">
         <div>
             <h1>Nuestro Trabajo</h1>
             <h2>Clientes que tuvimos a lo largo de los años</h2>
         </div>
         <div class="carrusel">
             <div class="cartel-cliente" *ngFor="let cliente of clientes">
-                <img [src]="cliente.imagen" [alt]="">
+                <img [src]="cliente.imagen" [alt]="cliente.nombre">
                 <h4 class="cliente-nombre">{{cliente.nombre}}</h4>
             </div>
         </div>
     </div>
 
-    <div class="landing preguntas">
+    <div id="landing-preguntas" class="landing preguntas">
         <div>
             <h1>Preguntas Frecuentes</h1>
             <h2>Clientes que tuvimos a lo largo de los años</h2>
@@ -74,7 +71,7 @@
         </div>
     </div>
 
-    <div class="landing premium">
+    <div id="landing-premium" class="landing premium">
         <div>
             <h1>Planes</h1>
             <h2>aaaaaaaaaaa</h2>
@@ -96,10 +93,14 @@
                 <img class="imagen-premium"src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
                 <h4>Premium $400</h4>
             </div>
+            <div class="cartel-premium">
+                <img class="imagen-premium"src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
+                <h4>Premium $400</h4>
+            </div>
         </div>
     </div>
 
-    <footer class="landing footer">
+    <footer id="landing-footer" class="landing footer">
 
         <div class="footer-derecha">
             <img class="y"  src="https://img.freepik.com/vector-gratis/carro-compras-realista_1284-6011.jpg?semt=ais_incoming&w=740&q=80" alt="Statill logo">

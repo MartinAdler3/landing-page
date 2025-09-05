@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,13 +8,64 @@ import { Component } from '@angular/core';
   styleUrl: './landing-page.scss'
 })
 export class LandingPage {
-  botonesHeader: string[] = 
-  ["¿Qué es?", 
-    "Preguntas Frecuentes", 
-    "Clientes", 
-    "Nosotros", 
-    "Premium",
-  ]
+  constructor(private viewportScroller: ViewportScroller) {}
+
+  isScrollingDown = false;
+  lastScrollTop = 0;
+  isAutoScrolling = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (this.isAutoScrolling) {
+      // Ignoramos scroll durante auto scroll
+      return;
+    }
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > this.lastScrollTop) {
+      // Scrolleando hacia abajo
+      this.isScrollingDown = true;
+    } else {
+      // Scrolleando hacia arriba
+      this.isScrollingDown = false;
+    }
+
+    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Para no tener valores negativos
+  }
+
+  dirigirASeccion(id: string){
+    const prueba = document.getElementById(id);
+    if (prueba) {
+      this.isAutoScrolling = true;
+      prueba.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        this.isAutoScrolling = false;
+      }, 600);
+    }
+  }
+
+  botonesHeader: any[] = [
+  {
+    nombre: "¿Qué es?",
+    id: "landing-info",
+  },
+  {
+    nombre: "Preguntas Frecuentes",
+    id: "landing-preguntas",
+  },
+  {
+    nombre: "Clientes",
+    id: "landing-clientes",
+  },
+  {
+    nombre: "Nosotros",
+    id: "landing-footer",
+  },
+  {
+    nombre: "Premium",
+    id: "landing-premium",
+  },
+]
 
   clientes: any[] = [
     {

@@ -8,9 +8,24 @@
     height: auto;
     background-color: aqua;
 }
+
+.header {
+    position: sticky;
+    top: 0;
+    background: white;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  /* Cuando está oculto lo movemos hacia arriba para que no se vea */
+  .header.hidden {
+    transform: translateY(-100%);
+  }
+
 .contenedor-header,.header-derecha{
     display: flex;
     flex-direction: row;
+    list-style-type: none;
 
     &.contenedor-header{
         margin-left: 3%;
@@ -19,6 +34,11 @@
         align-items: center;
         height: 100px;
         background-color: rebeccapurple;
+    }
+    &.header-derecha{
+        margin-left: 1%;
+        width: 30%;
+        justify-content: space-around;
     }
 }
 
@@ -40,6 +60,7 @@
 }
 
 .landing{
+    scroll-margin-top: 80px;
     background-color: coral;
     height: 60vh;
     padding-bottom: 10vh;
