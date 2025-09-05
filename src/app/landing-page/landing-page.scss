@@ -3,7 +3,7 @@
 }
 
 .landing-page{
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: aqua;
 }
@@ -53,6 +53,9 @@
     &.preguntas{
         background-color: cornflowerblue;
     }
+    &.footer{
+        height: 40vh
+    }
 }
 
 .carrusel{
@@ -73,4 +76,56 @@
 
 .boton-pregunta{
     width: 100%;
+}
+
+.cosita-cartel{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.imagen-premium{
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
+.cartel-premium{
+    height: 30%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.y{
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+.footer-derecha,.footer-izquierda,.footer-centro{
+    height: 80%;
+    width: 33.3%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.footer{
+    margin-right: 2%;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.redes{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}
+
+.red{
+    width: calc(100%/4); /* cantidad de elementos */
+    height: auto;
+    object-fit: scale-down;
 }
