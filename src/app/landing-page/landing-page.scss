@@ -1,5 +1,6 @@
 *{
     margin: 0%;
+    padding: 0%;
 }
 
 .landing-page{
@@ -53,8 +54,16 @@
     &.preguntas{
         background-color: cornflowerblue;
     }
+    &.premium{
+        background-color: pink;
+    }
     &.footer{
-        height: 40vh
+        height: 40vh;
+        background-color: #FF3938;
+        margin-right: 2%;
+        margin-left: 2%;
+        display: flex;
+        flex-direction: row;
     }
 }
 
@@ -80,6 +89,7 @@
 
 .cosita-cartel{
     width: 100%;
+    max-height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -92,7 +102,7 @@
 }
 
 .cartel-premium{
-    height: 30%;
+    height: 40%;
     margin-left: 2%;
     margin-right: 2%;
 }
@@ -107,13 +117,6 @@
     width: 33.3%;
     margin-left: 2%;
     margin-right: 2%;
-}
-
-.footer{
-    margin-right: 2%;
-    margin-left: 2%;
-    display: flex;
-    flex-direction: row;
 }
 
 .redes{
