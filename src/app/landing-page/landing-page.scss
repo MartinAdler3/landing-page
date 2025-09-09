@@ -6,7 +6,7 @@
 .landing-page{
     width: 100%;
     height: auto;
-    background-color: #F5F5F5;
+    background-color: #FFFFFF;
 }
 
 .header {
@@ -168,11 +168,10 @@
 }
 
 .cosita-cartel{
-    width: 100%;
+    width: 30%;
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .imagen-premium{
@@ -184,7 +183,7 @@
 .cartel-premium{
     background-color: #FFF;
     height: 80%;
-    width: 40%;
+    width: 100%;
     margin: 3%;
     display: flex;
     flex-direction: column;
@@ -250,7 +249,7 @@
 }
 
 .red{
-    width: calc(70%/3); /* cantidad de elementos */
+    width: calc(40%/3); /* cantidad de elementos */
     height: auto;
     object-fit: scale-down;
 }
