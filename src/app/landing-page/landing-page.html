@@ -3,14 +3,18 @@
     <!-- Header -->
     <header class="header" [class.hidden]="isScrollingDown">
         <nav class="contenedor-header">
+            <div class="logo">
+                <img src="https://img.freepik.com/vector-gratis/carro-compras-realista_1284-6011.jpg?semt=ais_incoming&w=740&q=80" alt="Statill logo" style="height:40px; width:auto; margin-right:10px; vertical-align:middle;">
+                <span>Statill</span>
+            </div>
             <ul class="header-derecha"><!-- seccion derecha -->
                 <li class="botones-header" *ngFor="let boton of botonesHeader">
-                    <button type="button" (click)="dirigirASeccion(boton.id)">{{boton.nombre}}</button>
+                    <button type="button" class="boton-derecha-header" (click)="dirigirASeccion(boton.id)">{{boton.nombre}}</button>
                 </li>
             </ul>
             <ul class="header-izquierda"><!-- seccion izquierda -->
-                <button type="button" class="inciar-sesion">Iniciar sesión</button>
-                <button type="button" class="registrarse">Registrarse</button>
+                <button type="button" class="boton-header-izquierda" id="iniciar-sesion">Iniciar sesión</button>
+                <button type="button" class="boton-header-izquierda" id="registrarse">Registrarse</button>
             </ul>
         </nav>
     </header>
@@ -63,7 +67,7 @@
                 <button type="button" class="boton-pregunta" (click)="pregunta.activo = !pregunta.activo">
                     {{pregunta.pregunta}}
                 </button>
-        
+
                 <div *ngIf="pregunta.activo == true">
                     {{pregunta.respuesta}}
                 </div>
