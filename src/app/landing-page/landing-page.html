@@ -21,8 +21,8 @@
 
     <!-- seccion 1 -->
     <div id="landing-info" class="landing info">
-        <div>
-            <h1>Digitaliza tu comercio</h1>
+        <div class="titulo">
+            <h1>DIGITALIZA TU COMERCIO</h1>
             <h3>¿Por qué digitalizar comercios?</h3>
         </div>
         <div class="buenardo">
@@ -45,8 +45,8 @@
     </div>
 
     <div id="landing-clientes" class="landing clientes">
-        <div>
-            <h1>Nuestro Trabajo</h1>
+        <div class="titulo">
+            <h1>NUESTRO TRABAJO</h1>
             <h2>Clientes que tuvimos a lo largo de los años</h2>
         </div>
         <div class="carrusel">
@@ -58,17 +58,16 @@
     </div>
 
     <div id="landing-preguntas" class="landing preguntas">
-        <div>
-            <h1>Preguntas Frecuentes</h1>
+        <div class="titulo">
+            <h1>PREGUNTAS FRECUENTES</h1>
             <h2>Clientes que tuvimos a lo largo de los años</h2>
         </div>
         <div class="landing-preguntas">
-            <div class="preguntas" *ngFor="let pregunta of preguntas">
+            <div class="preguntas-cartel" *ngFor="let pregunta of preguntas">
                 <button type="button" class="boton-pregunta" (click)="pregunta.activo = !pregunta.activo">
-                    {{pregunta.pregunta}}
+                    {{pregunta.pregunta}} {{pregunta.activo ? '-' : '+'}}
                 </button>
-
-                <div *ngIf="pregunta.activo == true">
+                <div class="pregunta-respuesta" *ngIf="pregunta.activo == true">
                     {{pregunta.respuesta}}
                 </div>
             </div>
@@ -76,38 +75,50 @@
     </div>
 
     <div id="landing-premium" class="landing premium">
-        <div>
+        <div class="titulo">
             <h1>Planes</h1>
-            <h2>aaaaaaaaaaa</h2>
+        </div>
+        <div class="contenedor-carteles-premium">
+          <div class="cosita-cartel">
+            <div class="cartel-premium">
+              <div class="premium-titulo">
+                <h2>Plan Básico</h2>
+                <img src="" alt="asd">
+              </div>
+
+                <li class="premium-lista">
+                  <h3>- Sistema de puntos</h3>
+                  <h3>- Promociones exclusivas</h3>
+                  <h3>- Catálogo Online</h3>
+                </li>
+
+                <h2 class="premium-precio">GRATIS</h2>
+            </div>
         </div>
         <div class="cosita-cartel">
             <div class="cartel-premium">
-                <img class="imagen-premium"src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
-                <h4>Premium $400</h4>
-            </div>
-            <div class="cartel-premium">
-                <img class="imagen-premium"src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
-                <h4>Premium $400</h4>
-            </div>
-            <div class="cartel-premium">
-                <img class="imagen-premium"src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
-                <h4>Premium $400</h4>
-            </div>
-            <div class="cartel-premium">
-                <img class="imagen-premium"src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
-                <h4>Premium $400</h4>
-            </div>
-            <div class="cartel-premium">
-                <img class="imagen-premium"src="https://thumbs.dreamstime.com/b/persona-del-dinero-4686189.jpg" alt="">
-                <h4>Premium $400</h4>
+              <div class="premium-titulo">
+                <h2>Plan Premium</h2>
+                <img src="" alt="asd">
+              </div>
+
+                <li class="premium-lista">
+                  <h3>- Extensión en capacidad de personal</h3>
+                  <h3>- Graficos a elección ilimitados</h3>
+                  <h3>- Acceso a herramientas de IA</h3>
+                </li>
+
+                <h2 class="premium-precio">GRATIS</h2>
             </div>
         </div>
+        </div>
+
     </div>
 
     <footer id="landing-footer" class="landing footer">
 
         <div class="footer-derecha">
-            <img class="y"  src="https://img.freepik.com/vector-gratis/carro-compras-realista_1284-6011.jpg?semt=ais_incoming&w=740&q=80" alt="Statill logo">
+            <img class="y" src="assets/statill-contacto.png" alt="Statill logo">
         </div>
         <div class="footer-centro">
             <div class="texto-contacto">
@@ -117,12 +128,10 @@
             </div>
         </div>
         <div class="footer-izquierda">
-            <h3>Siguenos en nuestras redes sociales:</h3>
             <div class="redes">
                 <img class="red" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="facebook">
-                <img class="red" src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="instagram">
+                <img class="red" src="https://logo.clearbit.com/instagram.com" alt="instagram">
                 <img class="red" src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="twitter">
-                <img class="red" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="linkedin">
             </div>
         </div>
     </footer>

@@ -15,6 +15,7 @@
     background: white;
     transition: transform 0.3s ease;
     z-index: 1000;
+    border-bottom: #8F8F8F 3px solid;
   }
 
   /* Cuando está oculto lo movemos hacia arriba para que no se vea */
@@ -33,12 +34,31 @@
         justify-content: space-between;
         align-items: center;
         height: 100px;
-        background-color: rebeccapurple;
     }
     &.header-derecha{
-        margin-left: 1%;
-        width: 30%;
-        justify-content: space-around;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.botones-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+    & .boton-derecha-header{
+        height: 50%;
+        width: 100%;
+        cursor: pointer;
+        margin-left: 3%;
+        background-color: transparent;
+        border: none;
+        font-weight: 600;
+        font-size: 1rem;
     }
 }
 
@@ -76,7 +96,6 @@
     align-items: center;
     margin: 3%;
     width: 80%;
-    background-color: royalblue;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -87,8 +106,9 @@
 }
 
 .landing{
+    width: 94%;
     scroll-margin-top: 80px;
-    background-color: coral;
+    background-color: #FFFFFF;
     height: 60vh;
     padding-bottom: 10vh;
     display: flex;
@@ -96,15 +116,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 3%;
-    &.clientes{
-        background-color: crimson;
-    }
-    &.preguntas{
-        background-color: cornflowerblue;
-    }
-    &.premium{
-        background-color: pink;
-    }
     &.footer{
         height: 40vh;
         background-color: #FF3938;
@@ -121,24 +132,45 @@
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+    background-color: #8F8F8F;
     width: 100%;
 }
 
 .cartel-cliente{
     align-items: center;
     justify-content: center;
-    background-color: blue;
     margin-right: 0.8rem;
     margin-left: 0.8rem;
 }
 
 .boton-pregunta{
+    width: 60vw;
+    height: 40px;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 600;
+    word-wrap: break-word;
+    border-radius: 5px;
+}
+
+.preguntas-cartel{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    background-color: rebeccapurple;
+    margin: 1% auto;
+}
+.pregunta-respuesta{
+    width: 60vw;
+    background-color: #D9D9D9;
+    height: 30px;
 }
 
 .cosita-cartel{
     width: 100%;
-    max-height: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -151,9 +183,49 @@
 }
 
 .cartel-premium{
-    height: 40%;
-    margin-left: 2%;
-    margin-right: 2%;
+    background-color: #FFF;
+    height: 80%;
+    width: 40%;
+    margin: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #8F8F8F;
+    box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.premium-titulo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 3%;
+  width: 100%;
+}
+
+.premium-lista{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    margin-left: 10%;
+    width: 100%;
+}
+
+.premium-precio{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 3%;
+}
+
+.contenedor-carteles-premium{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
 }
 
 .y{
@@ -161,6 +233,7 @@
     width: auto;
     object-fit: cover;
 }
+
 .footer-derecha,.footer-izquierda,.footer-centro{
     height: 80%;
     width: 33.3%;
@@ -175,11 +248,24 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: red;
 }
 
 .red{
-    width: calc(100%/4); /* cantidad de elementos */
+    width: calc(70%/3); /* cantidad de elementos */
     height: auto;
     object-fit: scale-down;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 3%;
+}
+
+
+.texto-contacto,.footer-izquierda{
+  color: white;
 }

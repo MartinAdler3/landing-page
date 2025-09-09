@@ -50,27 +50,27 @@ export class LandingPage {
     id: "landing-info",
   },
   {
+    nombre: "Clientes",
+    id: "landing-clientes",
+  },
+  {
     nombre: "Preguntas Frecuentes",
     id: "landing-preguntas",
   },
-  {
-    nombre: "Clientes",
-    id: "landing-clientes",
+    {
+    nombre: "Premium",
+    id: "landing-premium",
   },
   {
     nombre: "Nosotros",
     id: "landing-footer",
   },
-  {
-    nombre: "Premium",
-    id: "landing-premium",
-  },
 ]
 
   clientes: any[] = [
     {
-      nombre: "Fuoco",
-      imagen: "https://logo.clearbit.com/mcdonalds.com"
+      nombre: "KFC",
+      imagen: "https://logo.clearbit.com/kfc.com"
     },
     {
       nombre: "McDonald's",
@@ -82,31 +82,27 @@ export class LandingPage {
     },
     {
       nombre: "Mostaza",
-      imagen: "https://logo.clearbit.com/mostaza.com.ar"
+      imagen: "https://img.logo.dev/mostazaweb.com.ar?token=pk_eOl7nkUBQhCsqN-g3WPKXg"
     },
         {
-      nombre: "Freddie Verdury",
-      imagen: "https://logo.clearbit.com/mcdonalds.com"
+      nombre: "Taco Bell",
+      imagen: "https://logo.clearbit.com/tacobell.com"
     },
     {
-      nombre: "Tacos Goku",
-      imagen: "https://logo.clearbit.com/wendys.com"
+      nombre: "Five guys",
+      imagen: "https://logo.clearbit.com/fiveguys.com"
     },
     {
-      nombre: "Mi Gusto",
-      imagen: "https://logo.clearbit.com/migusto.com.ar"
+      nombre: "Pizza hut",
+      imagen: "https://logo.clearbit.com/pizzahut.com"
     },
     {
-      nombre: "Dale bro",
-      imagen: "https://logo.clearbit.com/wendys.com"
+      nombre: "Chipotle",
+      imagen: "https://img.logo.dev/chipotle.com?token=pk_eOl7nkUBQhCsqN-g3WPKXg"
     },
     {
-      nombre: "brotheeer",
-      imagen: "https://logo.clearbit.com/wendys.com"
-    },
-    {
-      nombre: "burger king",
-      imagen: "https://logo.clearbit.com/burgerking.com"
+      nombre: "Starbucks",
+      imagen: "https://logo.clearbit.com/starbucks.com"
     },
   ]
   preguntas: any[] = [
