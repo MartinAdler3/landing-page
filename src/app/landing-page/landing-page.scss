@@ -3,10 +3,25 @@
     padding: 0%;
 }
 
+:host {
+  }
+
 .landing-page{
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fondo{
+    display: block;
+    min-height: 100vh;
+    background-image: url('/assets/rayito.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 90%;
     height: auto;
-    background-color: #FFFFFF;
 }
 .texto-statill{
   color: #FD2A2C;
@@ -63,6 +78,7 @@
     justify-content: center;
     width: 60%;
     height: 100%;
+    cursor: pointer;
     & .boton-derecha-header{
         height: 50%;
         width: 100%;
@@ -120,7 +136,7 @@
 .landing{
     width: 94%;
     scroll-margin-top: 80px;
-    background-color: #FFFFFF;
+    background-color: transparent;
     height: 60vh;
     padding-bottom: 10vh;
     display: flex;
@@ -135,6 +151,7 @@
         margin-left: 2%;
         display: flex;
         flex-direction: row;
+        margin-bottom: 0%;
         padding-bottom: 0%;
     }
 }
@@ -195,7 +212,7 @@
 
 .cartel-premium{
     background-color: #FFF;
-    height: 80%;
+    height: 90%;
     width: 100%;
     margin: 3%;
     display: flex;
@@ -204,6 +221,7 @@
     justify-content: space-between;
     border: 1px solid #8F8F8F;
     box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
 
 .premium-titulo{
