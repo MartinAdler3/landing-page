@@ -3,24 +3,39 @@
     padding: 0%;
 }
 
-:host {
+@keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
+
+.animado{
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 0.5s ease forwards;
+}
 
 .landing-page{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .fondo{
     display: block;
     min-height: 100vh;
     background-image: url('/assets/rayito.png');
-    background-size: cover;
+    background-size: 80%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    width: 90%;
+    width: 100%;
     height: auto;
 }
 .texto-statill{
@@ -69,6 +84,13 @@
         display: flex;
         flex-direction: row;
     }
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .botones-header{
@@ -131,6 +153,8 @@
 .buenardito{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .landing{
@@ -163,14 +187,15 @@
     overflow-x: scroll;
     background-color: #8F8F8F;
     width: 100%;
+    scroll-behavior:smooth;
 }
 
-.cartel-cliente{
+  .cartel-cliente {
     align-items: center;
     justify-content: center;
     margin-right: 0.8rem;
     margin-left: 0.8rem;
-}
+  }
 
 .boton-pregunta{
     width: 60vw;
@@ -294,7 +319,10 @@
     margin-top: 3%;
 }
 
-
 .texto-contacto,.footer-izquierda{
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

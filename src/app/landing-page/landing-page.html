@@ -21,11 +21,11 @@
 
     <!-- seccion 1 -->
     <div id="landing-info" class="landing info">
-        <div class="titulo">
+        <div class="titulo animado">
             <h1>DIGITALIZA TU COMERCIO</h1>
             <h3>¿Por qué digitalizar comercios?</h3>
         </div>
-        <div class="buenardo">
+        <div class="buenardo animado">
             <div class="buenardito">
                 <img src="assets/statill-cupon.png" alt="cupon">
                 <h4>Acceso a promociones explosivas.</h4>
@@ -49,7 +49,7 @@
             <h1>NUESTRO TRABAJO</h1>
             <h2>Clientes que tuvimos a lo largo de los años</h2>
         </div>
-        <div class="carrusel">
+        <div class="carrusel ">
             <div class="cartel-cliente" *ngFor="let cliente of clientes">
                 <img [src]="cliente.imagen" [alt]="cliente.nombre">
                 <h4 class="cliente-nombre">{{cliente.nombre}}</h4>
