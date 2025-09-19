@@ -1,11 +1,30 @@
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // <-- 1. Importa este módulo
 
 @Component({
   selector: 'app-landing-page',
-  imports: [CommonModule],
   templateUrl: './landing-page.html',
-  styleUrl: './landing-page.scss'
+  styleUrls: ['./landing-page.scss'], // o .css
+  standalone: true,
+  imports: [CommonModule],
+  animations: [
+    trigger('slideUp', [ // <-- Nombre de nuestro trigger: 'slideUp'
+      transition(':enter', [ // <-- Se activa cuando un elemento entra en el DOM
+        style({
+          opacity: 0,
+          transform: 'translateY(50px)' // <-- Estado inicial (oculto y 50px abajo)
+        }),
+        animate('500ms ease', // <-- Duración y curva de tiempo (0.5s)
+          style({
+            opacity: 1,
+            transform: 'translateY(0)' // <-- Estado final (visible y en su lugar)
+          })
+        )
+      ])
+    ])
+  ]
 })
 export class LandingPage {
   constructor(private viewportScroller: ViewportScroller) {}
