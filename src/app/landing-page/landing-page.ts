@@ -1,6 +1,6 @@
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { Component, HostListener, ElementRef } from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // <-- 1. Importa este módulo
 
 @Component({
@@ -10,24 +10,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
   standalone: true,
   imports: [CommonModule],
   animations: [
-    trigger('slideUp', [ // <-- Nombre de nuestro trigger: 'slideUp'
-      transition(':enter', [ // <-- Se activa cuando un elemento entra en el DOM
-        style({
-          opacity: 0,
-          transform: 'translateY(50px)' // <-- Estado inicial (oculto y 50px abajo)
-        }),
-        animate('500ms ease', // <-- Duración y curva de tiempo (0.5s)
-          style({
-            opacity: 1,
-            transform: 'translateY(0)' // <-- Estado final (visible y en su lugar)
-          })
-        )
+    trigger('slideUp', [
+      state('oculto', style({
+        opacity: 0,
+        transform: 'translateY(50px)'
+      })),
+      state('visible', style({
+        opacity: 1,
+        transform: 'translateY(0)'
+      })),
+      transition('oculto => visible', [
+        animate('500ms ease')
+      ]),
+      // Puedes añadir la transición inversa si quieres un efecto al salir del viewport
+      transition('visible => oculto', [
+        animate('300ms ease')
       ])
     ])
   ]
 })
 export class LandingPage {
-  constructor(private viewportScroller: ViewportScroller) {}
+  constructor(private viewportScroller: ViewportScroller, private el: ElementRef) {}
 
   isScrollingDown = false;
   lastScrollTop = 0;
@@ -136,4 +139,25 @@ export class LandingPage {
       activo: false,
     },
   ]
+
+  animacionEstado: string = 'oculto';
+
+  // 2. Necesitamos acceder al elemento del DOM para saber su posición
+
+  // 3. Escuchamos el evento de scroll de la ventana
+  @HostListener('window:scroll', ['$event'])
+  checkScroll(event: Event) {
+    const componentPosition = this.el.nativeElement.getBoundingClientRect().top;
+    const scrollPosition = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+
+    // 4. Si la parte superior del componente está dentro de la ventana del navegador
+    //    activamos la animación
+    if (componentPosition < windowHeight * 0.8) { // El 0.8 es para que se active un poco antes de que esté totalmente visible
+      this.animacionEstado = 'visible';
+    } else {
+      // 5. Si no está, lo ponemos en 'oculto'
+      this.animacionEstado = 'oculto';
+    }
+  }
 }
