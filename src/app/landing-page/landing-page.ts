@@ -22,7 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
       transition('oculto => visible', [
         animate('500ms ease')
       ]),
-      // Puedes añadir la transición inversa si quieres un efecto al salir del viewport
       transition('visible => oculto', [
         animate('300ms ease')
       ])
