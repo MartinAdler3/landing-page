@@ -1,12 +1,12 @@
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component, HostListener, ElementRef } from '@angular/core';
-import { trigger, transition, style, animate, state } from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // <-- 1. Importa este módulo
+import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.html',
-  styleUrls: ['./landing-page.scss'], // o .css
+  styleUrls: ['./landing-page.scss'],
   standalone: true,
   imports: [CommonModule],
   animations: [
@@ -25,9 +25,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
       transition('visible => oculto', [
         animate('300ms ease')
       ])
+    ]),
+    trigger('latido', [
+      state('latir', style({})),
+      transition('* => latir', [
+        animate('1.5s infinite', 
+          keyframes([
+            style({ transform: 'scale(1)', offset: 0, easing: 'ease-in-out' }),
+            style({ transform: 'scale(1.15)', offset: 0.5, easing: 'ease-in-out' }),
+            style({ transform: 'scale(1)', offset: 1.0, easing: 'ease-in-out' })
+          ])
+        )
+      ])
     ])
   ]
 })
+
 export class LandingPage {
   constructor(private viewportScroller: ViewportScroller, private el: ElementRef) {}
 
