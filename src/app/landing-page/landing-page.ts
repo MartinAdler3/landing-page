@@ -1,5 +1,5 @@
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { Component, HostListener, ElementRef } from '@angular/core';
+import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
@@ -37,9 +37,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
           ])
         )
       ])
+    ]),
+    trigger('fadeIn', [
+      state('oculto', style({ opacity: 0 })),
+      state('visible', style({ opacity: 1 })),
+      transition('oculto => visible', [
+        animate('500ms ease-out')
+      ])
     ])
   ]
 })
+
+export class LandingPageComponent implements OnInit {
+  estadoAnimacion = 'oculto';
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          this.estadoAnimacion = 'visible';
+          observer.unobserve(entry.target);
+        }
+      });
+      observer.observe(this.el.nativeElement);
+    } else {
+      this.estadoAnimacion = 'visible';
+    }
+  }
+}
 
 export class LandingPage {
   constructor(private viewportScroller: ViewportScroller, private el: ElementRef) {}
