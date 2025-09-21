@@ -47,11 +47,40 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ])
   ]
 })
-
-export class LandingPageComponent implements OnInit {
+export class LandingPage implements OnInit {
   estadoAnimacion = 'oculto';
+  animacionEstado: string = 'oculto';
 
-  constructor(private el: ElementRef) {}
+  isScrollingDown = false;
+  lastScrollTop = 0;
+  isAutoScrolling = false;
+
+  botonesHeader: any[] = [
+    { nombre: "¿Qué es?", id: "landing-info" },
+    { nombre: "Clientes", id: "landing-clientes" },
+    { nombre: "Preguntas Frecuentes", id: "landing-preguntas" },
+    { nombre: "Premium", id: "landing-premium" },
+    { nombre: "Nosotros", id: "landing-footer" },
+  ];
+
+  clientes: any[] = [
+    { nombre: "KFC", imagen: "https://logo.clearbit.com/kfc.com" },
+    { nombre: "McDonald's", imagen: "https://logo.clearbit.com/mcdonalds.com" },
+    { nombre: "Wendy's", imagen: "https://logo.clearbit.com/wendys.com" },
+    { nombre: "Mostaza", imagen: "https://img.logo.dev/mostazaweb.com.ar?token=pk_eOl7nkUBQhCsqN-g3WPKXg" },
+    { nombre: "Taco Bell", imagen: "https://logo.clearbit.com/tacobell.com" },
+    { nombre: "Five guys", imagen: "https://logo.clearbit.com/fiveguys.com" },
+    { nombre: "Pizza hut", imagen: "https://logo.clearbit.com/pizzahut.com" },
+    { nombre: "Chipotle", imagen: "https://img.logo.dev/chipotle.com?token=pk_eOl7nkUBQhCsqN-g3WPKXg" },
+    { nombre: "Starbucks", imagen: "https://logo.clearbit.com/starbucks.com" },
+  ];
+
+  preguntas: any[] = [
+    { pregunta: "¿Cómo se usa?", respuesta: "El uso de Statill es blablabla porque blabla y además blablabla blabl ablabal bal ba", activo: false },
+    { pregunta: "¿Pueden usarlo mis empleados?", respuesta: "no, depende, a veces si", activo: false },
+  ];
+
+  constructor(private viewportScroller: ViewportScroller, private el: ElementRef) {}
 
   ngOnInit() {
     if ('IntersectionObserver' in window) {
@@ -66,137 +95,31 @@ export class LandingPageComponent implements OnInit {
       this.estadoAnimacion = 'visible';
     }
   }
-}
-
-export class LandingPage {
-  constructor(private viewportScroller: ViewportScroller, private el: ElementRef) {}
-
-  isScrollingDown = false;
-  lastScrollTop = 0;
-  isAutoScrolling = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if (this.isAutoScrolling) {
-      // Ignoramos scroll durante auto scroll
-      return;
-    }
+    if (this.isAutoScrolling) return;
+
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > this.lastScrollTop) {
-      // Scrolleando hacia abajo
-      this.isScrollingDown = true;
-    } else {
-      // Scrolleando hacia arriba
-      this.isScrollingDown = false;
-    }
-
-    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Para no tener valores negativos
+    this.isScrollingDown = currentScroll > this.lastScrollTop;
+    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }
 
-  dirigirASeccion(id: string){
+  dirigirASeccion(id: string) {
     const prueba = document.getElementById(id);
     if (prueba) {
       this.isAutoScrolling = true;
       prueba.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => {
-        this.isAutoScrolling = false;
-      }, 600);
+      setTimeout(() => { this.isAutoScrolling = false; }, 600);
     }
   }
 
-  botonesHeader: any[] = [
-  {
-    nombre: "¿Qué es?",
-    id: "landing-info",
-  },
-  {
-    nombre: "Clientes",
-    id: "landing-clientes",
-  },
-  {
-    nombre: "Preguntas Frecuentes",
-    id: "landing-preguntas",
-  },
-    {
-    nombre: "Premium",
-    id: "landing-premium",
-  },
-  {
-    nombre: "Nosotros",
-    id: "landing-footer",
-  },
-]
-
-  clientes: any[] = [
-    {
-      nombre: "KFC",
-      imagen: "https://logo.clearbit.com/kfc.com"
-    },
-    {
-      nombre: "McDonald's",
-      imagen: "https://logo.clearbit.com/mcdonalds.com"
-    },
-    {
-      nombre: "Wendy's",
-      imagen: "https://logo.clearbit.com/wendys.com"
-    },
-    {
-      nombre: "Mostaza",
-      imagen: "https://img.logo.dev/mostazaweb.com.ar?token=pk_eOl7nkUBQhCsqN-g3WPKXg"
-    },
-        {
-      nombre: "Taco Bell",
-      imagen: "https://logo.clearbit.com/tacobell.com"
-    },
-    {
-      nombre: "Five guys",
-      imagen: "https://logo.clearbit.com/fiveguys.com"
-    },
-    {
-      nombre: "Pizza hut",
-      imagen: "https://logo.clearbit.com/pizzahut.com"
-    },
-    {
-      nombre: "Chipotle",
-      imagen: "https://img.logo.dev/chipotle.com?token=pk_eOl7nkUBQhCsqN-g3WPKXg"
-    },
-    {
-      nombre: "Starbucks",
-      imagen: "https://logo.clearbit.com/starbucks.com"
-    },
-  ]
-  preguntas: any[] = [
-    {
-      pregunta: "¿Cómo se usa?",
-      respuesta: "El uso de Statill es blablabla porque blabla y además blablabla blabl ablabal bal ba",
-      activo: false,
-    },
-    {
-      pregunta: "¿Pueden usarlo mis empleados?",
-      respuesta: "no, depende, a veces si",
-      activo: false,
-    },
-  ]
-
-  animacionEstado: string = 'oculto';
-
-  // 2. Necesitamos acceder al elemento del DOM para saber su posición
-
-  // 3. Escuchamos el evento de scroll de la ventana
   @HostListener('window:scroll', ['$event'])
   checkScroll(event: Event) {
     const componentPosition = this.el.nativeElement.getBoundingClientRect().top;
-    const scrollPosition = window.pageYOffset;
     const windowHeight = window.innerHeight;
 
-    // 4. Si la parte superior del componente está dentro de la ventana del navegador
-    //    activamos la animación
-    if (componentPosition < windowHeight * 0.8) { // El 0.8 es para que se active un poco antes de que esté totalmente visible
-      this.animacionEstado = 'visible';
-    } else {
-      // 5. Si no está, lo ponemos en 'oculto'
-      this.animacionEstado = 'oculto';
-    }
+    this.animacionEstado = componentPosition < windowHeight * 0.8 ? 'visible' : 'oculto';
   }
 }
