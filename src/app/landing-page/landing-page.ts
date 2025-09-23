@@ -1,6 +1,6 @@
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
+import { trigger, state, style, animate, transition, keyframes, query, stagger } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @Component({
@@ -58,6 +58,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       ]),
       transition('visible => oculto', [
         animate('300ms ease-in')
+      ])
+    ]),
+    trigger('carruselAnimacion', [
+      transition(':enter', [
+        query('.cartel-cliente', [
+          style({ opacity: 0, transform: 'translateX(100px)' }),
+          stagger(150, [ // 150ms de retraso entre la animación de cada ítem
+            animate('500ms ease-out', style({ opacity: 1, transform: 'translateX(0)' }))
+          ])
+        ], { optional: true })
       ])
     ])
   ]
