@@ -28,7 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ]),
     trigger('pulsar', [
       state('normal', style({ transform: 'scale(1)' })),
-      state('pulsado', style({ transform: 'scale(1.1)' })),
+      state('pulsado', style({ transform: 'scale(1.05)' })),
       
       transition('normal => pulsado', [
         animate('0.5s ease-in') 
@@ -144,6 +144,6 @@ export class LandingPage implements OnInit {
     const componentPosition = this.el.nativeElement.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
-    this.animacionEstado = componentPosition < windowHeight * 0.8 ? 'visible' : 'oculto';
+    this.animacionEstado = componentPosition < windowHeight * 0.99 ? 'visible' : 'oculto';
   }
 }
