@@ -44,9 +44,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       transition('oculto => visible', [
         animate('500ms ease-out')
       ])
+    ]),
+    trigger('slideRight', [
+      state('oculto', style({
+        opacity: 0,
+        transform: 'translateX(-100px)'
+      })),
+      state('visible', style({
+        opacity: 1,
+        transform: 'translateX(0)'
+      })),
+      transition('oculto => visible', [
+        animate('700ms ease-out')
+      ]),
+      transition('visible => oculto', [
+        animate('300ms ease-in')
+      ])
     ])
   ]
 })
+
 export class LandingPage implements OnInit {
   estadoAnimacion = 'oculto';
   animacionEstado: string = 'oculto';
