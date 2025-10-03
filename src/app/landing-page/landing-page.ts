@@ -2,8 +2,7 @@
 
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component, HostListener, ElementRef, OnInit, OnDestroy } from '@angular/core';
-import { trigger, state, style, animate, transition, keyframes, query, stagger } from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { trigger, state, style, animate, transition, keyframes, query, stagger} from '@angular/animations';
 
 @Component({
   selector: 'app-landing-page',
@@ -76,6 +75,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 })
 
 export class LandingPage implements OnInit, OnDestroy {
+  
   estadoAnimacion = 'oculto';
   animacionEstado: string = 'oculto';
   estadoPulsacion: string = 'normal';

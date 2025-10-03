@@ -193,24 +193,42 @@
     height: 40px;
     background-color: #D9D9D9;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 20px;
     font-weight: 600;
     word-wrap: break-word;
-    border-radius: 5px;
+    border-radius: 4px;
+    border: black;
+}
+
+.pregunta-texto{
+    margin-right: 5%;
+    margin-left: 5%;
+    width: auto;
+}
+
+.dropS{
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 2;
 }
 
 .preguntas-cartel{
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rebeccapurple;
     margin: 1% auto;
 }
 .pregunta-respuesta{
     width: 60vw;
     background-color: #D9D9D9;
-    height: 30px;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 5px;
 }
 
 .cosita-cartel{
@@ -286,6 +304,7 @@
     margin-right: 2%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .redes{
@@ -296,7 +315,7 @@
 }
 
 .red{
-    width: calc(40%/3); /* cantidad de elementos */
+    width: calc(100%/3); /* cantidad de elementos */
     height: auto;
     object-fit: scale-down;
 }

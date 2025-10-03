@@ -64,9 +64,11 @@
         </div>
         <div class="landing-preguntas">
             <div class="preguntas-cartel" *ngFor="let pregunta of preguntas">
-                <button type="button" class="boton-pregunta" (click)="pregunta.activo = !pregunta.activo">
-                    {{pregunta.pregunta}} {{pregunta.activo ? '-' : '+'}}
+                <button type="button" class="boton-pregunta" (click)="pregunta.activo = !pregunta.activo" [class.dropS]="pregunta.activo">
+                    <div class="pregunta-texto">{{pregunta.pregunta}}</div>
+                    <div class="pregunta-texto">{{pregunta.activo ? '-' : '+'}}</div>
                 </button>
+
                 <div class="pregunta-respuesta" *ngIf="pregunta.activo == true">
                     {{pregunta.respuesta}}
                 </div>
