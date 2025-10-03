@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         transform: 'translateY(0)'
       })),
       transition('oculto => visible', [
-        animate('500ms ease')
+       animate('500ms 100ms ease-out') // <-- agregamos 1s de delay
       ]),
       transition('visible => oculto', [
         animate('300ms ease')
