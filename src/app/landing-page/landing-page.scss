@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .fondo{
@@ -165,20 +165,27 @@
 }
 
 .carrusel{
-    background-color: cyan;
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    background-color: #8F8F8F;
     width: 100%;
-    scroll-behavior:smooth;
+    scroll-behavior:auto;
+    -webkit-overflow-scrolling: touch; // para iOS
+    &::-webkit-scrollbar {
+        display: none; // oculta la barra de scroll
+    }
+    scrollbar-width: none; // oculta la barra de scroll en Firefox
 }
 
   .cartel-cliente {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right: 0.8rem;
-    margin-left: 0.8rem;
+    margin-right: 16px;
+    margin-left: 16px;
+    flex: 0 0 0px; // Forzamos un ancho mínimo
+    min-width: 150px
   }
 
 .boton-pregunta{

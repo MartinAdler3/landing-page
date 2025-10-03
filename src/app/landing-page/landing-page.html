@@ -50,7 +50,7 @@
             <h2>Clientes que tuvimos a lo largo de los años</h2>
         </div>
         <div class="carrusel" [@carruselAnimacion]>
-        <div class="cartel-cliente" *ngFor="let cliente of clientes">
+        <div class="cartel-cliente" *ngFor="let cliente of clientesDuplicados">
             <img [src]="cliente.imagen" [alt]="cliente.nombre">
             <h4 class="cliente-nombre">{{cliente.nombre}}</h4>
         </div>
